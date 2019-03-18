@@ -1,6 +1,8 @@
 package com.ianarbuckle.codingproject.app.builder
 
 import com.ianarbuckle.codingproject.app.CodingProjectApp
+import com.ianarbuckle.codingproject.network.APIService
+import com.ianarbuckle.codingproject.network.NetworkModule
 import dagger.Component
 
 /**
@@ -8,7 +10,8 @@ import dagger.Component
  *
  */
 @AppScope
-@Component(modules = [AppModule::class])
+@Component(modules = [AppModule::class, NetworkModule::class])
 interface AppComponent {
     fun inject(app: CodingProjectApp)
+    fun service(): APIService
 }

@@ -4,6 +4,7 @@ import android.app.Application
 import com.ianarbuckle.codingproject.app.builder.AppComponent
 import com.ianarbuckle.codingproject.app.builder.AppModule
 import com.ianarbuckle.codingproject.app.builder.DaggerAppComponent
+import net.danlew.android.joda.JodaTimeAndroid
 
 /**
  * Created by Ian Arbuckle on 16/11/2018.
@@ -22,5 +23,7 @@ class CodingProjectApp : Application() {
                 .appModule(AppModule(this))
                 .build()
         component.inject(this)
+
+        JodaTimeAndroid.init(this)
     }
 }

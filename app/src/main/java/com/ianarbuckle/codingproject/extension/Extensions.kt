@@ -8,6 +8,8 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.ianarbuckle.codingproject.R
+import org.joda.time.DateTime
+import org.joda.time.format.DateTimeFormat
 
 /**
  * Created by Ian Arbuckle on 18/11/2018.
@@ -21,13 +23,7 @@ fun ImageView.provideImage(context: Context, imageUrl: String) {
             .into(this)
 }
 
-@BindingAdapter("imageUrl")
-fun ImageView.setImageUrl(imageUrl: String) = provideImage(context, imageUrl)
-
-@BindingAdapter("statusColor")
-fun TextView.setStatusColor(status: String) {
-    when(status) {
-        "OPEN" -> setTextColor(ContextCompat.getColor(context, R.color.colorGreen))
-        "CLOSED" -> setTextColor(ContextCompat.getColor(context, R.color.colorRed))
-    }
+fun String.resolveToDateFormat(date: String): String {
+    val dateTime = DateTime(date)
+    return dateTime.toString(DateTimeFormat.mediumDateTime())
 }

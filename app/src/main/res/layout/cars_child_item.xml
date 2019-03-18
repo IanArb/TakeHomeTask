@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <data>
+            <import type="java.lang.Integer" />
+        </data>
+        <variable
+            name="vehicleAvail"
+            type="com.ianarbuckle.codingproject.data.VehAvail"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/availableStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:text="@{String.format(@string/status_text, vehicleAvail.status)}"
+            tools:text="Status: Available"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/model"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_marginTop="5dp"
+            android:text="@{String.format(@string/model_type_text, vehicleAvail.vehicle.vehMakeModel.name)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintTop_toBottomOf="@id/availableStatus"
+            tools:layout_editor_absoluteX="10dp"
+            tools:text="Model: Toyota Rav4 or similar"/>
+
+        <TextView
+            android:id="@+id/fuelType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:text="@{String.format(@string/fuel_type_text, vehicleAvail.vehicle.fuelType)}"
+            tools:text="Fuel Type: Petrol"
+            app:layout_constraintTop_toBottomOf="@+id/model"/>
+
+        <TextView
+            android:id="@+id/passengers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:text="@{String.format(@string/passenger_quantity_text, vehicleAvail.vehicle.passengerQuantity)}"
+            tools:text="Passengers: 4"
+            app:layout_constraintTop_toBottomOf="@+id/fuelType"/>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:text="@{String.format(@string/price_text, vehicleAvail.totalCharge.currencyCode, vehicleAvail.totalCharge.rateTotalAmount)}"
+            tools:text="Price: 240.00"
+            app:layout_constraintTop_toBottomOf="@+id/passengers"/>
+
+        <Button
+            android:id="@+id/viewMoreButton"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_more_button_title"
+            app:layout_constraintTop_toBottomOf="@id/price"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Coding Project</string>
+    <string name="legend_title">Legend</string>
+    <string name="view_more_button_title">View More</string>
+    <string name="pick_up_time_label">Pick Up Time</string>
+    <string name="pick_up_location_label">Pick Up Location</string>
+    <string name="return_time_label">Return Time</string>
+    <string name="return_location_label">Return Location</string>
+    <string name="status_text">Status - %s</string>
+    <string name="fuel_type_text">Fuel Type - %s</string>
+    <string name="model_type_text">Model - %s</string>
+    <string name="transmission_type_text">Transmission - %s</string>
+    <string name="passenger_quantity_text">Passengers - %s</string>
+    <string name="price_text">Price - %1$s %2$s</string>
+    <string name="vendor_name_text">Vendor - %1$s %2$s</string>
+    <string name="available_vehicles_text">Available Vehicles</string>
 </resources>
